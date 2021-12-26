@@ -1,0 +1,69 @@
+CIRCUIT C:\Users\up1053711\Desktop\Lab4_Krat.MSK
+*
+* IC Technology: CMOS 1.2µm CMOS
+*
+VDD 1 0 DC 5.00
+Vcin 16 0 PULSE(0.00 5.00 2.00N 2.00N 2.00N 7.00N 13.00N)
+VN1 9 12 DC 0.00
+VP1 13 9 DC 0.00
+*
+* List of nodes
+* "N5" corresponds to n°5
+* "N6" corresponds to n°6
+* "out1" corresponds to n°7
+* "output" corresponds to n°9
+* "B" corresponds to n°12, WARNING: appears 2 times in the layout
+* "A" corresponds to n°13, WARNING: appears 2 times in the layout
+* "B" corresponds to n°14, WARNING: appears 2 times in the layout
+* "A" corresponds to n°15, WARNING: appears 2 times in the layout
+* "cin" corresponds to n°16
+*
+* MOS devices
+MN1 0 1 10 0 N1  W= 3.60U L= 1.20U
+MN2 10 0 0 0 N1  W= 3.60U L= 1.20U
+MN3 7 16 10 0 N1  W= 3.60U L= 1.20U
+MN4 11 1 7 0 N1  W= 3.60U L= 1.20U
+MN5 0 0 11 0 N1  W= 3.60U L= 1.20U
+MN6 12 7 0 0 N1  W= 3.60U L= 1.20U
+MP1 6 1 5 1 P1  W= 8.40U L= 1.20U
+MP2 7 0 6 1 P1  W= 8.40U L= 1.20U
+MP3 5 16 7 1 P1  W= 8.40U L= 1.20U
+MP4 1 1 5 1 P1  W= 8.40U L= 1.20U
+MP5 5 0 1 1 P1  W= 8.40U L= 1.20U
+MP6 13 7 1 1 P1  W= 8.40U L= 1.20U
+*
+C2 1 0 49.588fF
+C3 1 0 45.281fF
+C5 5 0 83.738fF
+C6 6 0 25.841fF
+C7 7 0 58.974fF
+C9 9 0 61.405fF
+C10 10 0 30.616fF
+C11 11 0 16.074fF
+C12 1 0  2.540fF
+C14 1 0  2.540fF
+C16 16 0  2.540fF
+*
+* n-MOS Model 3 :
+* Standard
+.MODEL N1 NMOS LEVEL=3 VTO=0.70 UO=600.000 TOX=25.0E-9
++LD =-0.080U THETA=0.100 GAMMA=0.400
++PHI=0.700 KAPPA=0.010 VMAX=150.00K
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p CJSW=240.0p
+*
+* p-MOS Model 3:
+* Standard
+.MODEL P1 PMOS LEVEL=3 VTO=-0.76 UO=200.000 TOX=25.0E-9
++LD =-0.030U THETA=0.100 GAMMA=0.400
++PHI=0.700 KAPPA=0.045 VMAX=70.00K
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p CJSW=240.0p
+*
+* Transient analysis
+*
+.TEMP 27.0
+.TRAN 0.1N 100.00N
+* (Pspice)
+.PROBE
+.END

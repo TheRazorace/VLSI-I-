@@ -1,0 +1,58 @@
+CIRCUIT C:\Users\john-\Desktop\Lab3\Lab3_NOR3_1.MSK
+*
+* IC Technology: CMOS 1.2µm CMOS
+*
+VDD 1 0 DC 5.00
+V7_NOR_Input2 7 0 DC 5.00V
+VNOR_Input1 8 0 PULSE(0.00 5.00 3.00N 2.00N 2.00N 12.00N 19.00N)
+V9_NOR_Input3 9 0 DC 1.00V
+VP1 11 4 DC 0.00
+VN1 4 10 DC 0.00
+*
+* List of nodes
+* "NOR_Output" corresponds to n°4
+* "N5" corresponds to n°5
+* "N6" corresponds to n°6
+* "NOR_Input2" corresponds to n°7
+* "NOR_Input1" corresponds to n°8
+* "NOR_Input3" corresponds to n°9
+*
+* MOS devices
+MN1 0 9 10 0 N1  W= 3.60U L= 1.20U
+MN2 10 7 0 0 N1  W= 3.60U L= 1.20U
+MN3 0 8 10 0 N1  W= 3.60U L= 1.20U
+MP1 5 9 11 1 P1  W= 5.40U L= 1.20U
+MP2 6 7 5 1 P1  W= 5.40U L= 1.20U
+MP3 1 8 6 1 P1  W= 5.40U L= 1.20U
+*
+C2 1 0 27.267fF
+C4 4 0 53.654fF
+C5 5 0 12.290fF
+C6 6 0 14.758fF
+C7 7 0  1.814fF
+C8 8 0  1.814fF
+C9 9 0  1.814fF
+*
+* n-MOS Model 3 :
+* Standard
+.MODEL N1 NMOS LEVEL=3 VTO=0.70 UO=600.000 TOX=25.0E-9
++LD =-0.080U THETA=0.100 GAMMA=0.400
++PHI=0.700 KAPPA=0.010 VMAX=150.00K
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p CJSW=240.0p
+*
+* p-MOS Model 3:
+* Standard
+.MODEL P1 PMOS LEVEL=3 VTO=-0.76 UO=200.000 TOX=25.0E-9
++LD =-0.030U THETA=0.100 GAMMA=0.400
++PHI=0.700 KAPPA=0.045 VMAX=70.00K
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p CJSW=240.0p
+*
+* Transient analysis
+*
+.TEMP 27.0
+.TRAN 0.1N 30.00N
+* (Pspice)
+.PROBE
+.END

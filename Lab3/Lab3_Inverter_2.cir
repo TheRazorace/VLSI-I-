@@ -1,0 +1,44 @@
+CIRCUIT C:\Users\up1053711\Desktop\Lab3_Inverter.MSK
+*
+* IC Technology: CMOS 1.2µm CMOS
+*
+VDD 1 0 DC 5.00
+Vclock1 5 0 PULSE(0.00 5.00 6.00N 4.00N 4.00N 10.00N 20.00N)
+VP1 3 4 DC 0.00
+VN1 4 2 DC 0.00
+*
+* List of nodes
+* "out" corresponds to n°4
+* "clock1" corresponds to n°5
+*
+* MOS devices
+MN1 0 5 2 0 N1  W= 3.60U L= 1.20U
+MP1 1 5 3 1 P1  W= 8.40U L= 1.20U
+*
+C2 1 0 45.281fF
+C4 4 0 61.405fF
+C5 5 0  2.495fF
+*
+* n-MOS Model 3 :
+* Standard
+.MODEL N1 NMOS LEVEL=3 VTO=0.70 UO=600.000 TOX=25.0E-9
++LD =-0.080U THETA=0.100 GAMMA=0.400
++PHI=0.700 KAPPA=0.010 VMAX=150.00K
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p CJSW=240.0p
+*
+* p-MOS Model 3:
+* Standard
+.MODEL P1 PMOS LEVEL=3 VTO=-0.76 UO=200.000 TOX=25.0E-9
++LD =-0.030U THETA=0.100 GAMMA=0.400
++PHI=0.700 KAPPA=0.045 VMAX=70.00K
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p CJSW=240.0p
+*
+* Transient analysis
+*
+.TEMP 27.0
+.TRAN 0.1N 100.00N
+* (Pspice)
+.PROBE
+.END
